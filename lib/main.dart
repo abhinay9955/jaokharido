@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
-      create: (_)=> ThemeChanger(MyThemes.Dark()),
+      create: (_)=> ThemeChanger(MyThemes.Light()),
       child: MaterialAppWithTheme()
     );  }
 }

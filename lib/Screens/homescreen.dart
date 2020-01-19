@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:carousel_pro/carousel_pro.dart';
-import 'package:flutter/material.dart';
 import 'package:jaokharido/Blocs/themechanger.dart';
 import 'package:jaokharido/Models/themes.dart';
 import 'package:provider/provider.dart';
@@ -12,8 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
- var  _switch=false;
- var _themetext="Dark";
+ var  _switch=true;
+ var _themetext="Light";
   @override
   Widget build(BuildContext context) {
     final _theme=Provider.of<ThemeChanger>(context);
@@ -66,25 +65,57 @@ class _HomePageState extends State<HomePage> {
                    borderRadius: true,
                    radius: Radius.circular(10.0),
                    dotBgColor: Colors.transparent,
-                   images: [Image.asset("assets/images/c1.jpg"),Image.asset("assets/images/m1.jpeg"),Image.asset("assets/images/m2.jpg"),Image.asset("assets/images/w1.jpeg"),Image.asset("assets/images/w3.jpeg"),Image.asset("assets/images/w4.jpeg")],
+                   images: [Image.asset("assets/images/c1.jpg",fit: BoxFit.cover,),Image.asset("assets/images/m1.jpeg",fit: BoxFit.cover),Image.asset("assets/images/m2.jpg",fit: BoxFit.cover),Image.asset("assets/images/w1.jpeg",fit: BoxFit.cover),Image.asset("assets/images/w3.jpeg",fit: BoxFit.cover),Image.asset("assets/images/w4.jpeg",fit: BoxFit.cover)],
                  ),
                ),
 
             Container(
-              padding:EdgeInsets.all(10.0) ,
+              decoration: BoxDecoration(color: Theme.of(context).accentColor.withAlpha(20),borderRadius: BorderRadius.all(Radius.circular(10.0))),
+               padding:EdgeInsets.symmetric(vertical:10.0) ,
+                margin: EdgeInsets.symmetric(vertical: 3.0,horizontal: 8.0),
               height: 80.0,
-              child: ListView.builder(
+              child: ListView(
 
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context,index)
-                {
-                  return Container(
+                children: <Widget>[
+                  
+                  Container(
                     height: 80.0,
                     width: 80.0,
                     child: Image.asset("assets/images/cats/accessories.png"),
-                  );
-                },
-                itemCount: 5,
+                  ),
+                  Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/dress.png"),
+                  ),
+                  Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/formal.png"),
+                  ),
+                  Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/informal.png"),
+                  ),
+                  Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/jeans.png"),
+                  ),
+                  Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/shoe.png"),
+                  ),
+                  Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/tshirt.png"),
+                  ),
+                  
+                ],
               ),
             )
           ],
