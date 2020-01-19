@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jaokharido/Models/themes.dart';
 import 'package:provider/provider.dart';
 
 import 'Blocs/themechanger.dart';
-import 'Screens/homepage.dart';
+import 'Screens/homescreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
-      create: (_)=> ThemeChanger(ThemeData.dark()),
+      create: (_)=> ThemeChanger(MyThemes.Dark()),
       child: MaterialAppWithTheme()
     );  }
 }
