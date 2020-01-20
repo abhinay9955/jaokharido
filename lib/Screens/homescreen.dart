@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:carousel_pro/carousel_pro.dart';
@@ -30,6 +32,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final _theme=Provider.of<ThemeChanger>(context);
+    var listitem = Padding(
+            padding: const EdgeInsets.all(8.0),
+//              child: GridView(
+//                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+//                children: <Widget>[
+                              child:Container(
+                                height: 200.0,
+                                child: Card(
+                                  elevation: 8.0,
+                                  shape: RoundedRectangleBorder(borderRadius:BorderRadius.all(Radius.circular(8.0))),
+                                  child: Image.asset("assets/images/products/blazer1.jpeg",fit: BoxFit.fill,),
+
+                                ),
+                              ),);
     return Scaffold(
       appBar: AppBar(title: Text("Shop4U"),backgroundColor: Theme.of(context).primaryColorDark,elevation: 10.0,centerTitle: true,actions: <Widget>[
         InkWell(
@@ -130,9 +146,16 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
+          Expanded(
+            child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (context,index)=> listitem,
+              itemCount: 20,
+            ),
+          )
+    ]));
 
-        ],
-      )
-     );
+
+
+
   }
 }
