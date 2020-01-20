@@ -25,6 +25,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   provider:
   carousel_pro:
+  firebase_core:
+  firebase_database:
+  firebase_auth:
+  google_sign_in:
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +48,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/products/blazer1.jpeg
     - assets/images/c1.jpg
     - assets/images/m1.jpeg
     - assets/images/m2.jpg

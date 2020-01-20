@@ -1,11 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:jaokharido/Models/themes.dart';
+import 'package:jaokharido/Screens/loginscreen.dart';
 import 'package:provider/provider.dart';
 
 import 'Blocs/themechanger.dart';
 import 'Screens/homescreen.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+ SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_){
+   runApp(MyApp());
+
+ });
+}
 
 
 
@@ -28,7 +37,19 @@ class MaterialAppWithTheme extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: _theme.getTheme(),
-      home: HomePage(),
+      home: FutureBuilder<FirebaseUser>(
+        future: FirebaseAuth.instance.currentUser(),
+        builder: (context,snapshot){
+
+          if(snapshot.hasData) {
+            FirebaseUser user = snapshot.data;
+            return HomePage();
+        }else
+          {
+            return LoginScreen();
+          }
+        },
+      ),
       title: "Jao Kharido",
     );
   }
