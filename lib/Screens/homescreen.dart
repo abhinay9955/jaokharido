@@ -11,6 +11,11 @@ import 'package:jaokharido/Screens/loginscreen.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
+
+  FirebaseUser user;
+
+  HomePage(this.user);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -18,7 +23,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
  var  _switch=true;
  var _themetext="Light";
- FirebaseUser user=null;
+
  List<String> datas;
 
  @override
@@ -66,8 +71,8 @@ class _HomePageState extends State<HomePage> {
           child: Drawer(
             child: Column(
               children: <Widget>[
-                UserAccountsDrawerHeader(accountEmail: Text("kumarabhinay599@gmail.com"),accountName: Text("Abhinay Kumar"),
-                currentAccountPicture: CircleAvatar(backgroundColor: Colors.grey,child: Icon(Icons.person,color: Colors.white,),),),
+                UserAccountsDrawerHeader(accountEmail: Text(widget.user.email),accountName: Text(widget.user.displayName),
+                currentAccountPicture: CircleAvatar(backgroundColor: Colors.grey,backgroundImage: NetworkImage(widget.user.photoUrl) ,),),
                 ListTile(
                   leading: Switch(value: _switch,
                   onChanged: (value){
@@ -106,40 +111,61 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               children: <Widget>[
 
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  child: Image.asset("assets/images/cats/accessories.png"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/accessories.png"),
+                  ),
                 ),
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  child: Image.asset("assets/images/cats/dress.png"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/dress.png"),
+                  ),
                 ),
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  child: Image.asset("assets/images/cats/formal.png"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/formal.png"),
+                  ),
                 ),
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  child: Image.asset("assets/images/cats/informal.png"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/informal.png"),
+                  ),
                 ),
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  child: Image.asset("assets/images/cats/jeans.png"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/jeans.png"),
+                  ),
                 ),
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  child: Image.asset("assets/images/cats/shoe.png"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/shoe.png"),
+                  ),
                 ),
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  child: Image.asset("assets/images/cats/tshirt.png"),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 80.0,
+                    width: 80.0,
+                    child: Image.asset("assets/images/cats/tshirt.png"),
+                  ),
                 ),
 
               ],
